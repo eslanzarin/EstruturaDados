@@ -1,5 +1,9 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+       Pilha p1 = new Pilha();
+       p1.desempilhar();
+       p1.desempilhar();
+       p1.desempilhar();
+       p1.desempilhar();
     }
 }

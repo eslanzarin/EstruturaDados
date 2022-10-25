@@ -1,10 +1,10 @@
 public class Pilha {
     
-    public int posicao;
-    public Object[] pilha;
+    public int posicao; // start the variable 'position', which is the index of the elements in the stack
+    public int pilha[]; // start the array of elements 
 
     public Pilha(){ //método construtor
-        this.pilha = new Object[10]; // a nova pilha terá 10 posições 
+        this.pilha = new int[10]; // a nova pilha terá 10 posições 
         this.posicao = -1; // a posicao de início é -1 pq o índice do primeiro valor é sempre 0
     }
 
@@ -17,7 +17,6 @@ public class Pilha {
 
     public Object desempilhar(){ // pop - remove o valor do topo
         if (isEmpty()){ // se estiver vazia, n fará nada
-            System.out.println("Empty stack!");
             return null;
         }
         return this.pilha[this.posicao --]; // se n, irá remover o objeto do topo
@@ -25,6 +24,7 @@ public class Pilha {
 
     public boolean isEmpty(){ // checa se está vazia
         if (this.posicao == -1){
+            System.out.println("Empty stack!");
             return true;
         }
         return false;
@@ -32,23 +32,27 @@ public class Pilha {
 
     public Object verificarTopo(){ // top - exibe o valor do topo
         if (this.isEmpty()) { // se estiver vazia, n fará nada
-            System.out.println("Empty stack!");
             return null;
         }
+        System.out.println("Top: " + this.pilha[this.posicao]);
         return this.pilha[this.posicao]; // se n, retorna q
     }
 
     public void verificarTodos(){
-        for(int i = this.posicao; i>=0; i--){
-            System.out.println(this.pilha[i]);
+        if (isEmpty()) {
         }
-    }
+        for (int i = 0; i < this.pilha.length; i++) {
+            System.out.print(this.pilha[i] + " ");
+        }
+}
 
     public int tamanho(){
         if (this.isEmpty()){
             return 0;
         }
-    return this.posicao + 1;
+        else {
+            System.out.println("There are " + this.posicao + 1 + " elements");
+            return this.posicao + 1;
+        }
     }
-
 }
